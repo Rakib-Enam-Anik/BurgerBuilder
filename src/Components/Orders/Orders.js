@@ -34,9 +34,9 @@ class Orders extends Component {
                 borderRadius: '5px',
                 padding: '5px',
                 marginRight: '10px',
-            }}>Sorry Failed to Load Orders! </p>
-        }else {
-            if(this.props.orders.length===0){
+            }}> Sorry Failed to Load Orders! </p>
+        } else {
+            if(this.props.orders.length === 0 ){
                 orders = <p style={{
                     border: '1px solid grey',
                     borderRadius: '5px',
@@ -45,13 +45,13 @@ class Orders extends Component {
                 }}>You have no Orders! </p>
         } else {
             orders = this.props.orders.map(order => {
-                return <Order order={order} key={order.id} />;
+                return <Order order={order} key={order.id} />
             })
         }
     }
         return (
             <div>
-                {this.props.orderLoading? <Spinner/> :orders}
+                {this.props.orderLoading ? <Spinner/> : orders}
             </div>
         )
     }

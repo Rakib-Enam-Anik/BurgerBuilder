@@ -8,7 +8,7 @@ const Order = props => {
                 borderRadius: '5px',
                 padding: '5px',
                 marginRight: '10px',
-            }} key={item.type}>{item.amount}* <span style={{textTransform:"capitalize"}}>{item.type}</span></span>
+            }} key={item.type}>{item.amount}* <span style={{ textTransform:"capitalize" }}>{item.type}</span></span>
         )
     })
     return (
@@ -23,6 +23,7 @@ const Order = props => {
             <p>Delivery Address: {props.order.customer.deliveryAddress} </p>
             <hr />
             {ingredientSummary}
+            <hr />
             <p>Total : {props.order.price} BDT </p> 
         </div>
     )

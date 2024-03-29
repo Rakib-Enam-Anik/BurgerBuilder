@@ -20,7 +20,7 @@ const Burger = props =>{
             ingredientArr = <p> Please add some ingredients! </p>
         }
 
-    console.log(ingredientArr);
+    //console.log(ingredientArr);
     return(
         <div className="Burger">
             <Ingredient type="bread-top" />

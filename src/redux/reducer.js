@@ -22,7 +22,7 @@ const INITIAL_STATE = {
     token: null,
     userId: null,
     authLoading: false,
-    authFailed: null,
+    authFailedMsg: null,
 }
 
 export const reducer = (state = INITIAL_STATE, action) => {
@@ -76,7 +76,7 @@ export const reducer = (state = INITIAL_STATE, action) => {
                     orders.push({
                         ...action.payload[key],
                         id: key,
-                    });
+                    })
                 }
                 
                 return {

@@ -4,7 +4,7 @@ import {
     Navbar,
     NavbarBrand,
     Nav,
-    NavItem
+    NavItem,
   
 } from 'reactstrap';
 import Logo from '../../assets/logo.png';
@@ -23,8 +23,7 @@ const Header = props => {
     if(props.token === null){
         links = (
             <Nav className="mr-md-5">
-           
-            <NavItem>
+           <NavItem>
                 <NavLink to="/login" className='NavLink'>Login</NavLink>
             </NavItem>
         </Nav>
@@ -41,7 +40,6 @@ const Header = props => {
             <NavItem>
                 <NavLink to="/logout" className='NavLink'>Logout</NavLink>
             </NavItem>
-            
         </Nav>
           )
     }
@@ -55,7 +53,7 @@ const Header = props => {
                {links}
             </Navbar>
         </div>
-    );
+    )       
 }
 
 export default  connect(mapStateToProps)(Header);

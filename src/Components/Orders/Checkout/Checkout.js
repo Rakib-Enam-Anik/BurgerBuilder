@@ -60,8 +60,7 @@ class Checkout extends Component  {
             orderTime: new Date(),
             userId: this.props.userId,
         }
-        axios.post("https://burger-builder-40852-default-rtdb.firebaseio.com/orders.json?auth=" + this
-        .props.token, order)
+        axios.post("https://burger-builder-40852-default-rtdb.firebaseio.com/orders.json?auth=" + this.props.token, order)
         .then(response=> {
             if(response.status === 200) {
                 this.setState({
@@ -81,7 +80,7 @@ class Checkout extends Component  {
         .catch(err =>{
             this.setState({
                 isLoading: false,
-                sModalOpen: true,
+                isModalOpen: true,
                 modalMsg: "Something Went Wrong! Order Again!",
             })
         })
@@ -93,18 +92,18 @@ class Checkout extends Component  {
             <h4 style={{
                     border: "1px solid grey",
                     boxShadow: "1px 1px #888888",
+                    borderRadius: "5px",
                     padding: "20px",
-                    margin: "20px",
                 }}>Payment:{this.props.totalPrice} BDT </h4>
                 <form style={{
                     border: "1px solid grey",
                     boxShadow: "1px 1px #888888",
-                    padding: "20px",
+                    borderRadius: "5px",
                     margin: "20px",
                 }}>
                     <textarea name="deliveryAddress" value={this.state.values.deliveryAddress}
                     className='form-control' placeholder="Your Delivery Address"
-                    onChange={(e)=> this.inputChangerHandler(e)}></textarea>
+                    onChange={(e) => this.inputChangerHandler(e)}></textarea>
                     <br />
                     <input name="phone" className="form-control" value={this.state.values.phone} 
                     placeholder="Your Phone Number" onChange={(e)=> this.inputChangerHandler(e)} />

@@ -29,14 +29,14 @@ class Auth extends Component {
     
     switchModeHandler = () => {
         this.setState({
-            mode: this.state.mode === "Sign Up"? "Log In" : "Sign Up"
+            mode: this.state.mode === "Sign Up" ? "Login" : "Sign Up"
         })
     }
 
     render() {
         
         let err = null;
-        if(this.props.authFailedMsg!==null){
+        if(this.props.authFailedMsg !== null){
             err = <Alert color="danger">{this.props.authFailedMsg}</Alert>
         }
 
@@ -93,8 +93,8 @@ class Auth extends Component {
              }}
 
              >
-             {({ values, handleChange, handleSubmit, errors }) => (<div
-                style={{
+             {({ values, handleChange, handleSubmit, errors }) => (
+             <div style={{
                  border: "1px grey solid",
                  padding: "15px",
                  borderRadius: "7px",
@@ -104,7 +104,7 @@ class Auth extends Component {
                      backgroundColor: "#D70F64",
                      color:"white",
 
-                 }} className="btn btn-lg" onClick={this.switchModeHandler}>Switch To {this.state.mode==="Sign Up" ? "Login" : "Sign Up"} </button>
+                 }} className="btn btn-lg" onClick={this.switchModeHandler}>Switch To {this.state.mode === "Sign Up" ? "Login" : "Sign Up"} </button>
                  <br></br>
                  <br></br>
                  <form onSubmit={handleSubmit}>
@@ -131,7 +131,7 @@ class Auth extends Component {
                  this.state.mode==="Sign Up"? <div>
                  <input 
                  name="passwordConfirm"
-                 placeholder=" Confirm Password"
+                 placeholder="Confirm Password"
                  className="form-control"
                  value={values.passwordConfirm}
                  onChange = {handleChange}
@@ -141,8 +141,7 @@ class Auth extends Component {
                  </div>:null
                  }
               
-                 <button type="submit" className="btn btn-success">{this
-                 .state.mode === "Sign Up" ? "Sign Up" : "Login"}</button>
+                 <button type="submit" className="btn btn-success">{this.state.mode === "Sign Up" ? "Sign Up" : "Login"}</button>
                  </form>
                  </div>)}
              

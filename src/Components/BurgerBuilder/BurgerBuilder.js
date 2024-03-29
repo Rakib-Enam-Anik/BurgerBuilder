@@ -1,15 +1,11 @@
 import React, { Component } from "react";
-import Burger from "./Burger/Burger";
-import Controls from "./Controls/Controls";
-import Summary from "./Summary/Summary";
+import Burger from './Burger/Burger';
+import Controls from './Controls/Controls';
+import Summary from './Summary/Summary';
 import { Modal, ModalBody, ModalHeader, ModalFooter, Button } from "reactstrap";
 
 import { connect } from "react-redux";
-import {
-  addIngredient,
-  removeIngredient,
-  updatePurchasable,
-} from "../../redux/actionCreators";
+import {addIngredient, removeIngredient, updatePurchasable } from "../../redux/actionCreators";
 import { useNavigate } from "react-router-dom";
 
 const mapStateToProps = (state) => {
@@ -17,41 +13,41 @@ const mapStateToProps = (state) => {
     ingredients: state.ingredients,
     totalPrice: state.totalPrice,
     purchasable: state.purchasable,
-  };
-};
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     addIngredient: (igtype) => dispatch(addIngredient(igtype)),
     removeIngredient: (igtype) => dispatch(removeIngredient(igtype)),
     updatePurchasable: () => dispatch(updatePurchasable()),
-  };
-};
+  }
+}
 
 class BurgerBuilder extends Component {
   state = {
     modalOpen: false,
   };
 
-  addIngredientHandle = (type) => {
+  addIngredientHandle = type => {
     this.props.addIngredient(type);
     this.props.updatePurchasable();
   };
 
-  removeIngredientHandle = (type) => {
+  removeIngredientHandle = type => {
     this.props.removeIngredient(type);
     this.props.updatePurchasable();
   };
 
   toggleModal = () => {
     this.setState({
-      modalOpen: !this.state.modalOpen,
-    });
-  };
+      modalOpen: !this.state.modalOpen
+    })
+  }
 
   handleCheckout = () => {
     this.props.navigate("/checkout");
-  };
+  }
 
   render() {
     return (
@@ -73,16 +69,12 @@ class BurgerBuilder extends Component {
             <Summary ingredients={this.props.ingredients} />
           </ModalBody>
           <ModalFooter>
-            <Button  style={{ backgroundColor:"#D70F64"}} onClick={this.handleCheckout}>
-              Continue to Checkout
-            </Button>
-            <Button color="secondary" onClick={this.toggleModal}>
-              Cancel
-            </Button>
+            <Button  style={{ backgroundColor: "#D70F64" }} onClick={this.handleCheckout}> Continue to Checkout </Button>
+            <Button color="secondary" onClick={this.toggleModal}> Cancel </Button>
           </ModalFooter>
         </Modal>
       </div>
-    );
+    )
   }
 }
 
